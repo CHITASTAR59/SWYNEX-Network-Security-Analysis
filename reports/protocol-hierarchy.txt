@@ -1,0 +1,11 @@
+
+===================================================================
+Protocol Hierarchy Statistics
+Filter: 
+
+frame                                    frames:15 bytes:1185
+  eth                                    frames:15 bytes:1185
+    ip                                   frames:15 bytes:1185
+      udp                                frames:15 bytes:1185
+        bfd                              frames:15 bytes:1185
+===================================================================

@@ -1,0 +1,162 @@
+{
+  "capture_file": "data/bfd-raw-auth-simple.pcap",
+  "total_frames": 15,
+  "bfd_packet_count": 15,
+  "protocol_hierarchy": "===================================================================\nProtocol Hierarchy Statistics\nFilter: \n\nframe                                    frames:15 bytes:1185\n  eth                                    frames:15 bytes:1185\n    ip                                   frames:15 bytes:1185\n      udp                                frames:15 bytes:1185\n        bfd                              frames:15 bytes:1185\n===================================================================",
+  "bfd_observations": [
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    },
+    {
+      "source_ip": "192.85.1.2",
+      "destination_ip": "192.0.0.1",
+      "udp_destination_port": "3784",
+      "bfd_state": "0x01",
+      "bfd_diagnostic": "0x00",
+      "bfd_flags": "0x44",
+      "authentication_type": "1",
+      "authentication_length": "9"
+    }
+  ],
+  "limitations": [
+    "Analysis is limited to the supplied PCAP.",
+    "Packet fields alone do not prove an attack or a compromised credential."
+  ]
+}

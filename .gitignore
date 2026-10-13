@@ -1,0 +1,21 @@
+# Packet captures — do not publish by default
+*.pcap
+*.pcapng
+*.cap
+
+# Secrets and credentials
+.env
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
