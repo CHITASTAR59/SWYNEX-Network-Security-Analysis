@@ -1,60 +1,111 @@
 # SWYNEX Network Security Analysis Report
 
+**Project:** Task 2 — Network Security Analysis  
+**Assessment type:** Offline packet capture analysis  
+**Environment:** Kali Linux  
+**Primary tools:** Wireshark, TShark, Python 3  
+**Report status:** Evidence-based technical assessment  
+**Classification:** Educational project; sample capture only
+
+---
+
 ## 1. Executive Summary
 
-This project analyzes an approved BFD packet capture using Kali Linux, Wireshark, and TShark.
+This project performs a defensive analysis of a sample Bidirectional
+Forwarding Detection (BFD) packet capture using Wireshark, TShark, and
+Python. The objective is to identify the observed protocol stack, extract
+relevant packet metadata, review authentication-related fields, and
+document security implications supported by the available evidence.
 
-## 2. Environment
+The supplied capture contains 15 frames totaling 1,185 bytes. All observed
+frames are decoded through Ethernet, IPv4, UDP, and BFD. The packets travel
+from `192.85.1.2` to `192.0.0.1`, using UDP source port `1024` and
+destination port `3784`.
 
-- Operating system: Kali Linux
-- Packet analyzer: Wireshark
-- Command-line analyzer: TShark
-- Capture: `bfd-raw-auth-simple.pcap`
+The extracted BFD fields consistently show version `1`, state value
+`0x01`, diagnostic value `0x00`, flags value `0x44`, authentication type
+value `1`, and authentication length value `9`.
 
-## 3. Protocol Statistics
+The authentication metadata is consistent with BFD Simple Password
+authentication encoding. However, the extracted fields alone do not prove
+that authentication is correctly enforced, that a credential has been
+compromised, or that malicious activity occurred.
 
-The initial protocol hierarchy reports 15 frames and 1,185 bytes. The observed protocol layers are Ethernet, IPv4, UDP, and BFD.
+**Overall assessment:** The sample provides useful evidence for protocol
+and configuration review, but it is insufficient to confirm a security
+vulnerability or determine the security posture of a live network.
 
-These are nested protocol counts, not independent traffic totals.
+---
 
-## 4. Observations
+## 2. Assessment Objectives
 
--The capture contains 15 BFD control packets over Ethernet, IPv4, and UDP.
--All observed packets travel from 192.85.1.2 to 192.0.0.1.
--The UDP source port is 1024, and the destination port is 3784.
--Packets occur at 0.2-second intervals, from 0.0 to 2.8 seconds.
--The decoded BFD version is 1; the state field is 0x01, diagnostic field is 0x00, and flags field is 0x44 in all 15 packets.
--The authentication metadata fields show type 1 and length 9. These values are consistent with Simple Password authentication encoding; the capture alone does not establish whether authentication was successfully enforced or whether any credential was compromised.
--No attack or vulnerability is confirmed by these observations alone.
+The objectives of this assessment are to:
 
-## 5. Security Assessment
+1. Identify the protocols represented in the packet capture.
+2. Establish the number of captured frames and total captured bytes.
+3. Identify the observed source and destination IP addresses and UDP ports.
+4. Extract relevant BFD control packet fields.
+5. Record authentication metadata without publishing secret values.
+6. Generate reproducible CSV and JSON analysis artifacts.
+7. Identify security questions requiring additional evidence.
+8. Recommend defensive validation and configuration review steps.
 
-BFD state transitions and authentication configuration can be important to network availability and security.
+---
 
-The presence of BFD traffic alone does not establish a vulnerability or malicious activity. Any concern must be supported by packet evidence and appropriate configuration context.
+## 3. Scope and Authorization
 
-## 6. Recommendations
+### 3.1 In Scope
 
-- Verify that BFD peers are authorized.
-- Review BFD session state and relevant device logs.
-- Check authentication settings against the network's security requirements.
-- Protect packet captures and redact sensitive authentication material.
-- Retain sanitized evidence for review.
+- Offline analysis of the supplied PCAP file.
+- Protocol hierarchy inspection.
+- Packet metadata extraction.
+- BFD state, diagnostic, flags, and authentication metadata review.
+- Generation of structured analysis results.
+- Documentation of findings and limitations.
 
-## 7. Limitations
+### 3.2 Out of Scope
 
-The assessment covers only the supplied 15-packet capture. It does not establish the security of the complete network or confirm an attack.
+- Live network scanning or exploitation.
+- Authentication bypass attempts.
+- Testing production routers or network infrastructure.
+- Verification of the actual BFD peer configuration.
+- Confirmation of credential compromise.
+- Attribution of traffic to a real individual or organization.
 
-## 8. Evidence
+The analysis is limited to the supplied sample. No claim is made that the
+capture represents a complete production environment.
 
-- `reports/protocol-hierarchy.txt`
-- `reports/packet-summary.csv`
-- Sanitized screenshots in `evidence/`
+---
 
-## 9. Conclusion
- 
-The sample PCAP was analyzed using Kali Linux and TShark. The capture contains 15 BFD control packets exchanged from 192.85.1.2 to 192.0.0.1 over UDP destination port 3784, spanning 2.8 seconds from the first to the last packet.
+## 4. Analysis Environment
 
-The extracted fields show BFD version 1, state value 0x01, diagnostic value 0x00, authentication type value 1, and authentication length value 9 across the observed packets. These observations are consistent with BFD Simple Password authentication being used in the sample. However, the available evidence does not establish credential compromise or an attack.
+| Component | Purpose |
+|---|---|
+| Kali Linux | Analysis workstation |
+| Wireshark | Graphical packet inspection |
+| TShark | Command-line packet dissection and field extraction |
+| Python 3 | Automation and structured result generation |
+| CSV | Tabular packet metadata |
+| JSON | Machine-readable analysis summary |
+| Markdown | Technical report and documentation |
 
-Recommended next steps include validating the authentication configuration, protecting packet captures that may contain sensitive data, and reviewing relevant device logs and configuration to determine whether authentication is appropriately enforced. The findings apply only to this sample capture and do not establish the security posture of a live network.
+### 4.1 Project Structure
+
+```text
+SWYNEX-Network-Security-Analysis/
+├── .gitignore
+├── README.md
+├── data/
+│   └── bfd-raw-auth-simple.pcap   # Local sample; excluded from Git
+├── evidence/
+│   └── Screenshots of actual analysis
+├── methodology/
+│   └── METHODOLOGY.md
+├── reports/
+│   ├── Network_Security_Analysis_Report.md
+│   ├── analysis_summary.json
+│   ├── packet-summary.csv
+│   └── protocol-hierarchy.txt
+└── scripts/
+    ├── analyze_pcap.py
+    └── validate_results.py
